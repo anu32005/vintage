@@ -1,18 +1,21 @@
-// 🌗 THEME TOGGLE
+// SAFE ELEMENTS
 const toggle = document.getElementById("themeToggle");
+const search = document.getElementById("search");
+const slides = document.getElementById("slides");
 
-toggle.onclick = () => {
-    document.body.classList.toggle("light");
-};
+// 🌗 TOGGLE
+if(toggle){
+    toggle.onclick = () => {
+        document.body.classList.toggle("light");
+    };
+}
 
-// 🔗 PAGE NAV
+// 🔗 NAVIGATION
 function openPage(type){
     window.location.href = "gallery.html?type=" + type;
 }
 
-// 🔍 SEARCH SMART FILTER
-const search = document.getElementById("search");
-
+// 🔍 SEARCH
 if(search){
     search.addEventListener("keypress", (e)=>{
         if(e.key === "Enter"){
@@ -21,22 +24,29 @@ if(search){
     });
 }
 
-// 🎞 SLIDER
+// 🎞 SLIDER SAFE
 let index = 0;
-const slides = document.getElementById("slides");
 
-function showSlide(){
-    slides.style.transform = translateX(-${index*100}%);
+if(slides){
+    function showSlide(){
+        slides.style.transform = translateX(-${index*100}%);
+    }
+
+    function nextSlide(){
+        index = (index+1)%3;
+        showSlide();
+    }
+
+    setInterval(nextSlide, 3000);
 }
 
-function nextSlide(){
-    index = (index+1)%3;
-    showSlide();
-}
+// 📄 GALLERY TITLE
+const params = new URLSearchParams(window.location.search);
+const type = params.get("type");
 
-function prevSlide(){
-    index = (index-1+3)%3;
-    showSlide();
+if(type){
+    const title = document.getElementById("title");
+    if(title){
+        title.innerText = type.toUpperCase();
+    }
 }
-
-setInterval(nextSlide, 4000);
