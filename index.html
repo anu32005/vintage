@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moonlight Memories</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<!-- 🌗 TOGGLE -->
+<button id="themeToggle">🌙</button>
+
+<!-- 🌙 HERO -->
+<header class="hero">
+    <div class="overlay"></div>
+
+    <h1 class="fade-in">Moonlight Memories</h1>
+    <p class="fade-in">Aesthetic Vintage Photography</p>
+
+    <input type="text" id="search" placeholder="Search occasion...">
+
+</header>
+
+<!-- 🌙 CATEGORIES -->
+<section class="categories fade-in">
+    <button onclick="openPage('wedding')">Wedding</button>
+    <button onclick="openPage('prewedding')">Pre-Wedding</button>
+    <button onclick="openPage('birthday')">Birthday</button>
+    <button onclick="openPage('engagement')">Engagement</button>
+    <button onclick="openPage('romantic')">Romantic</button>
+    <button onclick="openPage('model')">Model Shoot</button>
+</section>
+
+<!-- 🌙 SLIDER -->
+<section class="slider">
+    <div class="slides" id="slides">
+        <img src="assets/images/img1.jpg">
+        <img src="assets/images/img2.jpg">
+        <img src="assets/images/img3.jpg">
+    </div>
+
+    <div class="controls">
+        <button onclick="prevSlide()">❮</button>
+        <button onclick="nextSlide()">❯</button>
+    </div>
+</section>
+
+<script src="script.js"></script>
+<script src="effects.js"></script>
+
+</body>
+</html>
